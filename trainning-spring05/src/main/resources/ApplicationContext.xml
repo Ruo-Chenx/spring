@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+<!-- 
+构造方法注入 -->
+<!--     <bean id="tea" class="com.bean.Teacher">
+        <constructor-arg name="name" value="老李"></constructor-arg>
+        <constructor-arg name="age" value="36"></constructor-arg>
+    </bean> -->
+    <bean id="teacher4" class="com.bean.Teacher">
+        <constructor-arg index="0" value="老李1"></constructor-arg>
+        <constructor-arg index="1" value="38"></constructor-arg>
+    </bean>
+    
+    <bean id="tf" class="com.factory.TeacherFactory"></bean>
+    <!-- 静态工厂 -->
+  <!--   <bean id="teacher" class="com.factory.TeacherFactory" factory-method="createTeacher"></bean>
+    
+    <bean id="teacher2" factory-bean="tf" factory-method="createTeacher2"></bean>
+     -->
+    <!-- 
+    setter方法注入
+     -->
+    
+    <bean id="stu" class="com.bean.Student" >
+       <property name="name" value="小王"></property>
+       <property name="age" value="23"></property>
+       <property name="tea" ref="teacher4"></property>
+	    <property name="aa">
+			<props>
+				<prop key="administrator">administrator@example. org</prop>
+				<prop key="support">support@example. org</prop>
+				<prop key="development">development@example. org</prop>
+			</props>
+		</property>
+    </bean>
+    
+    
+    <bean id="stu1" class="com.bean.Student" autowire="byType">
+        
+    </bean>
+    
+    
+    
+    
+    
+   
+
+</beans>
